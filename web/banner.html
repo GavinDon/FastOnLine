@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <script type="text/javascript" src="js/http_code.jquery.com_jquery-3.2.1.js"/>
+    <script>
+
+
+        $(function () {
+            (function () {
+                var Pre = $('.pre');
+                var Next = $('.next');
+                var UL = $('.pic ul')
+                var Ar = $('.pic ul li')
+                var H = $('.pic').find('ul li').height();
+                iNow = 0;
+                timer = null;
+
+                Pre.click(function () {
+                    doMove(-1);
+                });
+                Next.click(function () {
+                    doMove(1);
+                });
+                function autoPlay() {
+                    timer = setInterval(function () {
+                        doMove(-1);
+                    }, 2000)
+                }
+
+                $('.lunbo').hover(function () {
+                    clearInterval(timer)
+                }, autoPlay)
+                autoPlay();
+                function doMove(num) {
+                    iNow += num;
+                    if (Math.abs(iNow) > Ar.length - 1) {
+                        iNow = 0;
+                    }
+                    if (iNow > 0) {
+                        iNow = -(Ar.length - 1);
+                    }
+                    UL.stop().animate({top: H * iNow}, 1000)
+                }
+            })()
+        })
+
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        img {
+            border: none;
+            overflow: hidden;
+            font-size: 0;
+        }
+
+        .lunbo {
+            width: 223px;
+            height: 133px;
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pic {
+            width: 223px;
+            height: 133px;
+            overflow: hidden;
+        }
+
+        .pic ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .pic ul li {
+            height: 133px;
+        }
+
+        .pre {
+            position: absolute;
+            left: 0px;
+            top: 50px;
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: #333;
+            color: #fff;
+            font-weight: bold;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .next {
+            position: absolute;
+            right: 0px;
+            top: 50px;
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: #333;
+            color: #fff;
+            font-weight: bold;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .dian {
+            width: 60px;
+            height: 20px;
+            background: red;
+            z-index: 10px;
+            position: absolute;
+            bottom: 10px;
+            left: 83px;
+            text-align: center;
+        }
+
+        .dian span {
+            color: #fff;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: #FC0;
+            float: left;
+            cursor: pointer;
+        }
+
+        .active {
+            background: #F00 !important;
+        }
+    </style>
+</head>
+
+<body>
+<div class="lunbo">
+    <div class="pic">
+        <ul>
+            <li><img src="image/banner01.jpg"/></li>
+            <li><img src="image/banner02.jpg"/></li>
+            <li><img src="image/banner03.jpg"/></li>
+        </ul>
+    </div>
+    <a class="pre"><</a>
+    <a class="next">></a>
+    <div class="dian"><span>·</span><span>·</span><span>·</span></div>
+</div>
+
+</body>
+</html>

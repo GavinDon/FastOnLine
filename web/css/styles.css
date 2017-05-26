@@ -60,6 +60,9 @@ h1 {
 .mBlock {
     display: block;
 }
+.none{
+    display: none;
+}
 
 .mInline {
     display: inline;

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./css/styles.css" type="text/css">
     <link rel="stylesheet" href="css/second.css" type="text/css">
     <script src="js/http_code.jquery.com_jquery-3.2.1.js"></script>
-    <script src="./js/second.js"></script>
+    <script src="./js/second.js" type="text/javascript"></script>
 </head>
 <body>
 <!--头部  高度100px 底部红色-->
@@ -26,7 +26,7 @@
 
     </div>
     <div class=" w1000 ">
-         <img id="logo" class=" fl" style="margin-top: 15px" src="image/wywk_logo.png" alt="小鱼儿" width="80" height="40"/>
+        <img id="logo" class=" fl" style="margin-top: 15px" src="image/wywk_logo.png" alt="小鱼儿" width="80" height="40"/>
 
         <ul id="nav" style="width: 920px ;margin-right: 0" class="fr">
             <li><a href="index.jsp">我的博客</a></li>
@@ -38,9 +38,16 @@
     </div>
 </div>
 
-</div>
-
 <!--banner-->
-
+<div id="scroll">
+    <p>上一张</p>
+    <p>下一张</p>
+    <ul>
+        <li style="display: block"><img src="image/banner01.jpg" width="100%" height="600"/></li>
+        <li><img src="image/banner02.jpg" width="100%" height="600"/></li>
+        <li><img src="image/banner03.jpg" width="100%" height="600"/></li>
+    </ul>
+</div>
 </body>
+
 </html>
